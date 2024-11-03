@@ -129,13 +129,15 @@ def resized(frame):
     return cv2.resize(frame, (w, h))
 
 # TODO
-def gen_ans(prompt):
-    global ans_cap, ans_aud
-    print(f'prompt: {prompt}')
-
+def gen_ans(question):
+    global ans_cap, ans_aud, context
+    print(f'prompt: {question}')
+    prompt = ans.get_prompt(question)
+    answer = ans.get_chatgpt_response(prompt)
     time.sleep(3)
     ans_cap = cv2.VideoCapture(vid(FLAMES_VID))
     ans_aud = FLAMES_VID
+    return answer
 
 def main():
     global state, ans_cap, ans_aud, answer_end_time
