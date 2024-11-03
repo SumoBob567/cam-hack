@@ -12,6 +12,7 @@ takes in a prompt and (dirtily) modify the global variables ans_vid (video) and 
 2. replace the images with appropriate ones.
 '''
 
+import ans 
 import cv2
 import speech_recognition as sr
 import threading
